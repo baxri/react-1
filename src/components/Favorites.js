@@ -1,14 +1,7 @@
-import React, { Component } from 'react';
+import React from "react";
 
-
-class Favorites extends Component {
-    render() {
-        return(
-            <div>
-               favorites
-          </div>
-        );
-    }
-}
+const Favorites = () => {
+  return <div>favorites</div>;
+};
 
 export default Favorites;
