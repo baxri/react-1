@@ -31,7 +31,7 @@ class App extends Component {
   };
 
   render() {
-    const { books } = this.state;
+    const { books, favorite } = this.state;
     return (
       <BrowserRouter>
         <div>
@@ -46,7 +46,7 @@ class App extends Component {
           <Route path="/Details" component={Details} />
           <Route
             path="/Favorites"
-            component={() => <Favorites data={books} />}
+            component={() => <Favorites data={favorite} />}
           />
         </div>
       </BrowserRouter>
