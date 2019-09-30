@@ -6,6 +6,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 class Home extends Component {
   handleClick = e => {
+    console.log("test");
     return this.props.updateState(this.state);
   };
   render() {

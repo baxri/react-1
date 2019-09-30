@@ -8,7 +8,8 @@ import Favorites from "../src/components/Favorites";
 
 class App extends Component {
   state = {
-    books: []
+    books: [],
+    favorite: []
   };
   componentDidMount() {
     axios
@@ -22,10 +23,10 @@ class App extends Component {
         console.log(error);
       });
   }
-  updateState = book => {
-    let books = [...this.state.books, book];
+  updateState = favorite => {
+    let favorites = [...this.state.favorites, favorite];
     this.setState({
-      books: books
+      favorites: favorites
     });
   };
 
