@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 class Home extends Component {
+  handleClick = e => {
+    return this.props.updateState(this.state);
+  };
   render() {
-    const { books } = this.props;
     return (
       <div>
         <Table>
@@ -19,22 +21,27 @@ class Home extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.books.map(book => {
-              return (
-                <tr key={book.id}>
-                  <td>{book.kind}</td>
-                  <td>{book.id}</td>
-                  <td>{book.etag}</td>
-                  <td>{book.selfLink}</td>
-                  <td>
-                    <div className="addfavoritebutton">
-                      <FontAwesomeIcon icon={faHeart} />
-                    </div>
-                  </td>
-                  <td>readmore</td>
-                </tr>
-              );
-            })}
+            {this.props &&
+              this.props.data &&
+              this.props.data.map(book => {
+                return (
+                  <tr key={book.id}>
+                    <td>{book.kind}</td>
+                    <td>{book.id}</td>
+                    <td>{book.etag}</td>
+                    <td>{book.selfLink}</td>
+                    <td>
+                      <div
+                        className="addfavoritebutton"
+                        onClick={this.handleClick}
+                      >
+                        <FontAwesomeIcon icon={faHeart} />
+                      </div>
+                    </td>
+                    <td>readmore</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </Table>
       </div>

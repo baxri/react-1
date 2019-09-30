@@ -1,7 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
+import { Table } from "reactstrap";
 
-const Favorites = () => {
-  return <div>favorites</div>;
-};
+class Favorites extends Component {
+  render() {
+    return <div>დოზანა</div>;
+  }
+}
 
 export default Favorites;

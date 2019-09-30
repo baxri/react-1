@@ -22,15 +22,31 @@ class App extends Component {
         console.log(error);
       });
   }
+  updateState = book => {
+    let books = [...this.state.books, book];
+    this.setState({
+      books: books
+    });
+  };
+
   render() {
     const { books } = this.state;
     return (
       <BrowserRouter>
         <div>
           <Navbar />
-          <Route exact path="/" component={Home} data={books} />
+          <Route
+            exact
+            path="/"
+            component={() => (
+              <Home data={books} updateState={this.updateState} />
+            )}
+          />
           <Route path="/Details" component={Details} />
-          <Route path="/Favorites" component={Favorites} />
+          <Route
+            path="/Favorites"
+            component={() => <Favorites data={books} />}
+          />
         </div>
       </BrowserRouter>
     );
